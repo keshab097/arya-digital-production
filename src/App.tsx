@@ -19,14 +19,12 @@ import {
 } from 'lucide-react';
 
 const EASE = [0.16, 1, 0.3, 1] as const;
-// Relevant, full-color placeholder media. [CONFIRM] swap for real shoot files / client assets.
-//  photo() -> topical color photos (loremflickr, deterministic via lock)
-//  face()  -> real portrait faces for avatars (pravatar)
-//  logo()  -> real full-color brand logos (Simple Icons CDN)
-const photo = (tags: string, w: number, h: number, lock: number) =>
-  `https://loremflickr.com/${w}/${h}/${tags}?lock=${lock}`;
-const face = (n: number, size = 160) => `https://i.pravatar.cc/${size}?img=${n}`;
-const logo = (slug: string) => `https://cdn.simpleicons.org/${slug}`;
+// Media is self-hosted in /public/img so it loads from the site's own origin (no
+// third-party CDN at runtime). [CONFIRM] swap for real shoot files / client assets.
+// import.meta.env.BASE_URL resolves the GitHub Pages subpath vs root automatically.
+const asset = (name: string) => `${import.meta.env.BASE_URL}img/${name}`;
+const face = (n: number, _size?: number) => asset(`face-${n}.jpg`);
+const logo = (slug: string) => asset(`logo-${slug}.svg`);
 
 /* ============================================================
    Shared primitives
@@ -331,7 +329,7 @@ function Hero() {
       <div aria-hidden data-placeholder="true" className="absolute bottom-0 right-0 pointer-events-none"
         style={{
           width: '48%', height: '66%',
-          backgroundImage: `url(${photo('kathmandu,nepal,temple', 900, 900, 3)})`,
+          backgroundImage: `url(${asset('hero.jpg')})`,
           backgroundSize: 'cover', backgroundPosition: 'center',
           opacity: 0.4, filter: 'saturate(1.1) contrast(1.05)',
           maskImage: 'linear-gradient(to top left, #000 22%, transparent 78%)',
@@ -513,7 +511,7 @@ function ServicesBento() {
 
           {/* B — Video Production (image-led) */}
           <a href="/production/video/" data-cursor className="group lg:col-span-5 rounded-[20px] overflow-hidden relative shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-1.5" style={{ minHeight: 420 }}>
-            <img data-placeholder="true" src={photo('film,camera,cinema', 800, 900, 11)} width={800} height={900} loading="lazy" alt="Film production still" className="work-image absolute inset-0 w-full h-full object-cover" />
+            <img data-placeholder="true" src={asset('bento-video.jpg')} width={800} height={900} loading="lazy" alt="Film production still" className="work-image absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(6,11,34,0.9), rgba(6,11,34,0.15) 55%, transparent)' }} />
             <div className="relative h-full p-8 flex flex-col text-white" style={{ minHeight: 420 }}>
               <div className="flex items-start justify-between">
@@ -575,7 +573,7 @@ function ServicesBento() {
           {/* F — Photography & Podcasts (split) */}
           <a href="/production/" data-cursor className="group lg:col-span-5 rounded-[20px] overflow-hidden flex shadow-card hover:shadow-card-hover transition-all duration-200 hover:-translate-y-1.5" style={{ minHeight: 280 }}>
             <div className="w-1/2 relative overflow-hidden">
-              <img data-placeholder="true" src={photo('photography,studio,camera', 500, 600, 12)} width={500} height={600} loading="lazy" alt="Photography studio" className="work-image absolute inset-0 w-full h-full object-cover" />
+              <img data-placeholder="true" src={asset('bento-photo.jpg')} width={500} height={600} loading="lazy" alt="Photography studio" className="work-image absolute inset-0 w-full h-full object-cover" />
             </div>
             <div className="w-1/2 bg-ink-soft p-6 flex flex-col text-white">
               <div className="flex items-start justify-between">
@@ -766,7 +764,7 @@ function WhyArya() {
           </div>
           <div className="lg:col-span-5 order-1 lg:order-2">
             <div className="lg:sticky lg:top-28 rounded-[20px] overflow-hidden relative" style={{ aspectRatio: '4/5' }}>
-              <img data-placeholder="true" src={photo('creative,office,team', 800, 1000, 21)} width={800} height={1000} loading="lazy" alt="The Arya team at work in the New Baneshwor studio" className="absolute inset-0 w-full h-full object-cover" />
+              <img data-placeholder="true" src={asset('why.jpg')} width={800} height={1000} loading="lazy" alt="The Arya team at work in the New Baneshwor studio" className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(6,11,34,0.55), transparent 50%)' }} />
               <div className="absolute bottom-5 left-5"><span className="pill bg-saffron text-ink font-mono">New Baneshwor, Kathmandu</span></div>
             </div>
@@ -786,7 +784,7 @@ function FeaturedWork() {
       <div className="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-12 gap-10 items-center">
         <Reveal className="lg:col-span-7">
           <div className="relative rounded-[20px] overflow-hidden group" style={{ aspectRatio: '4/5', maxHeight: 640 }}>
-            <img data-placeholder="true" src={photo('mountain,landscape,nepal', 900, 1100, 8)} width={900} height={1100} loading="lazy" alt="Featured case study cover" className="work-image absolute inset-0 w-full h-full object-cover" />
+            <img data-placeholder="true" src={asset('featured.jpg')} width={900} height={1100} loading="lazy" alt="Featured case study cover" className="work-image absolute inset-0 w-full h-full object-cover" />
             <div className="absolute top-5 left-5"><span className="pill bg-saffron text-ink font-mono">Featured Case Study</span></div>
           </div>
         </Reveal>
@@ -817,16 +815,16 @@ function FeaturedWork() {
    ============================================================ */
 const FILTERS = ['All', 'Branding', 'Web', 'SEO', 'Paid Media', 'Video', 'Photography'];
 // [CONFIRM] replace with Arya's own real projects, clients, and outcomes (generic placeholders).
-const WORKS: [string, string, string, string, string, number][] = [
-  ['Healthcare Group', 'Organic Growth Program', 'SEO', 'sample-healthcare', 'clinic,medical,health', 31],
-  ['National Bank', 'Local SEO Rebuild', 'SEO', 'sample-bank', 'bank,building,city', 32],
-  ['FMCG Brand', 'Packaging Rebrand', 'Branding', 'sample-fmcg', 'food,packaging,product', 33],
-  ['Mobility Startup', 'E-commerce Build', 'Web', 'sample-mobility', 'scooter,street,city', 34],
-  ['Consumer Tech', 'Launch Film', 'Video', 'sample-tech', 'studio,product,technology', 35],
-  ['Beverage Brand', 'Brand Photography', 'Photography', 'sample-beverage', 'tea,plantation,green', 36],
-  ['Financial Services', 'Paid Acquisition', 'Paid Media', 'sample-finance', 'finance,office,city', 37],
-  ['Hospitality Group', 'Website & Booking', 'Web', 'sample-hospitality', 'resort,hotel,pool', 38],
-  ['Coffee Brand', 'Identity System', 'Branding', 'sample-coffee', 'coffee,cafe,beans', 39],
+const WORKS: [string, string, string, string, string][] = [
+  ['Healthcare Group', 'Organic Growth Program', 'SEO', 'sample-healthcare', 'work-healthcare.jpg'],
+  ['National Bank', 'Local SEO Rebuild', 'SEO', 'sample-bank', 'work-bank.jpg'],
+  ['FMCG Brand', 'Packaging Rebrand', 'Branding', 'sample-fmcg', 'work-fmcg.jpg'],
+  ['Mobility Startup', 'E-commerce Build', 'Web', 'sample-mobility', 'work-mobility.jpg'],
+  ['Consumer Tech', 'Launch Film', 'Video', 'sample-tech', 'work-tech.jpg'],
+  ['Beverage Brand', 'Brand Photography', 'Photography', 'sample-beverage', 'work-beverage.jpg'],
+  ['Financial Services', 'Paid Acquisition', 'Paid Media', 'sample-finance', 'work-finance.jpg'],
+  ['Hospitality Group', 'Website & Booking', 'Web', 'sample-hospitality', 'work-hospitality.jpg'],
+  ['Coffee Brand', 'Identity System', 'Branding', 'sample-coffee', 'work-coffee.jpg'],
 ];
 function WorkGrid() {
   const [filter, setFilter] = useState('All');
@@ -848,10 +846,10 @@ function WorkGrid() {
           ))}
         </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {WORKS.filter((w) => filter === 'All' || w[2] === filter).map(([client, title, disc, slug, tags, lock]) => (
+          {WORKS.filter((w) => filter === 'All' || w[2] === filter).map(([client, title, disc, slug, file]) => (
             <a key={slug} href={`/work/${slug}/`} data-cursor className="group block">
               <div className="relative rounded-[16px] overflow-hidden" style={{ aspectRatio: '4/3' }}>
-                <img data-placeholder="true" src={photo(tags, 640, 480, lock)} width={640} height={480} loading="lazy" alt={`${client} ${title}`} className="work-image absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04]" />
+                <img data-placeholder="true" src={asset(file)} width={640} height={480} loading="lazy" alt={`${client} ${title}`} className="work-image absolute inset-0 w-full h-full object-cover group-hover:scale-[1.04]" />
                 <div className="absolute inset-0 flex items-end p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'linear-gradient(to top, rgba(6,11,34,0.7), transparent 60%)' }}>
                   <span className="link-arrow text-white"><span className="text-saffron">View</span> <ArrowRight size={15} className="arrow text-saffron" /></span>
                 </div>
@@ -1143,10 +1141,10 @@ function Team() {
 /* ============================================================
    S17. Insights
    ============================================================ */
-const POSTS: [string, string, string, string, string, string, number][] = [
-  ['Why most Nepali e-commerce SEO fails in the first 90 days (and the fix)', 'SEO', '8 min', 'May 28, 2026', 'ecommerce,laptop,shopping', 'nepali-ecommerce-seo', 41],
-  ['The Meta Ads creative test we run for every new client', 'Paid Media', '6 min', 'May 14, 2026', 'social,marketing,phone', 'meta-ads-creative-test', 42],
-  ["What changed in Google's local pack for Kathmandu in 2026", 'SEO', '5 min', 'Apr 30, 2026', 'kathmandu,street,map', 'kathmandu-local-pack-2026', 43],
+const POSTS: [string, string, string, string, string, string][] = [
+  ['Why most Nepali e-commerce SEO fails in the first 90 days (and the fix)', 'SEO', '8 min', 'May 28, 2026', 'post-1.jpg', 'nepali-ecommerce-seo'],
+  ['The Meta Ads creative test we run for every new client', 'Paid Media', '6 min', 'May 14, 2026', 'post-2.jpg', 'meta-ads-creative-test'],
+  ["What changed in Google's local pack for Kathmandu in 2026", 'SEO', '5 min', 'Apr 30, 2026', 'post-3.jpg', 'kathmandu-local-pack-2026'],
 ];
 function Insights() {
   return (
@@ -1160,11 +1158,11 @@ function Insights() {
           <a href="/blog/" className="link-arrow">Read more from the team <ArrowRight size={15} className="arrow" /></a>
         </Reveal>
         <div className="grid md:grid-cols-3 gap-6">
-          {POSTS.map(([title, cat, read, date, tags, slug, lock]) => (
+          {POSTS.map(([title, cat, read, date, file, slug]) => (
             <Reveal key={slug}>
               <a href={`/blog/${slug}/`} data-cursor className="group block">
                 <div className="relative rounded-[16px] overflow-hidden" style={{ aspectRatio: '16/9' }}>
-                  <img data-placeholder="true" src={photo(tags, 640, 360, lock)} width={640} height={360} loading="lazy" alt={title} className="work-image absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03]" />
+                  <img data-placeholder="true" src={asset(file)} width={640} height={360} loading="lazy" alt={title} className="work-image absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03]" />
                 </div>
                 <Eyebrow tone="saffron" className="font-mono mt-4 block">{cat}</Eyebrow>
                 <h3 className="font-semibold text-ink mt-2 line-clamp-2" style={{ fontSize: 21, lineHeight: 1.25 }}>{title}</h3>
