@@ -307,9 +307,10 @@ function Header() {
    S2. Hero
    ============================================================ */
 const BUILDING = [
-  'the new Mountain Helicopters site',
-  'the Angel Fertility growth program',
-  'the Global IME local SEO rebuild',
+  // [CONFIRM] swap for Arya's own current projects (generic placeholders, no real clients).
+  "a national adventure brand's new site",
+  "a healthcare group's growth program",
+  "a fintech's local SEO rebuild",
 ];
 function Hero() {
   const reduced = useReducedMotion();
@@ -785,26 +786,26 @@ function FeaturedWork() {
       <div className="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-12 gap-10 items-center">
         <Reveal className="lg:col-span-7">
           <div className="relative rounded-[20px] overflow-hidden group" style={{ aspectRatio: '4/5', maxHeight: 640 }}>
-            <img data-placeholder="true" src={photo('helicopter,himalaya,mountain', 900, 1100, 8)} width={900} height={1100} loading="lazy" alt="Mountain Helicopters Nepal case study" className="work-image absolute inset-0 w-full h-full object-cover" />
+            <img data-placeholder="true" src={photo('mountain,landscape,nepal', 900, 1100, 8)} width={900} height={1100} loading="lazy" alt="Featured case study cover" className="work-image absolute inset-0 w-full h-full object-cover" />
             <div className="absolute top-5 left-5"><span className="pill bg-saffron text-ink font-mono">Featured Case Study</span></div>
           </div>
         </Reveal>
         <Reveal className="lg:col-span-5" delay={0.1}>
           <Eyebrow tone="saffron" className="font-mono">CASE STUDY · 01</Eyebrow>
-          <p className="font-mono text-on-dark-soft mt-3" style={{ fontSize: 13, letterSpacing: '0.08em' }}>MOUNTAIN HELICOPTERS NEPAL</p>
+          <p className="font-mono text-on-dark-soft mt-3" style={{ fontSize: 13, letterSpacing: '0.08em' }}>[CLIENT NAME] · ADVENTURE TOURISM</p>
           <h2 id="feat-h2" className="font-display text-white mt-3" style={{ fontSize: 'clamp(28px,3.6vw,44px)', lineHeight: 1.08, letterSpacing: '-0.02em' }}>
-            From referral-only to ranked for "heli tour everest" in 8 months.
+            From referral-only to ranked for the category's highest-intent terms in 8 months.
           </h2>
           <div className="space-y-4 mt-6 text-on-dark-soft body-lg" style={{ maxWidth: 480 }}>
-            <p>A premium charter operator with no organic presence and a booking pipeline that lived entirely on word of mouth. The work started with a technical rebuild and a content map around real route demand.</p>
-            <p>Nine months of publishing, internal linking, and page-speed work moved the high-intent terms that drive bookings, not vanity keywords. <span className="text-on-dark">[CONFIRM]</span> specific figures with the client before launch.</p>
+            <p>A premium operator with no organic presence and a booking pipeline that lived entirely on word of mouth. The work started with a technical rebuild and a content map around real category demand.</p>
+            <p>Nine months of publishing, internal linking, and page-speed work moved the high-intent terms that drive bookings, not vanity keywords. <span className="text-on-dark">[CONFIRM]</span> the client, copy, and figures before launch.</p>
           </div>
           <div className="flex flex-wrap gap-3 mt-7">
             {['+340% organic sessions', '+187% booking inquiries', '8 mo timeline'].map((m) => (
               <span key={m} className="pill" style={{ border: '1px solid var(--saffron)', color: 'var(--saffron)', fontFamily: 'var(--font-mono)' }}>{m}</span>
             ))}
           </div>
-          <a href="/work/mountain-helicopters/" className="link-arrow mt-7 inline-flex">Read the full case study <ArrowRight size={15} className="arrow" /></a>
+          <a href="/work/" className="link-arrow mt-7 inline-flex">Read the full case study <ArrowRight size={15} className="arrow" /></a>
         </Reveal>
       </div>
     </section>
@@ -815,16 +816,17 @@ function FeaturedWork() {
    S9. Work grid
    ============================================================ */
 const FILTERS = ['All', 'Branding', 'Web', 'SEO', 'Paid Media', 'Video', 'Photography'];
+// [CONFIRM] replace with Arya's own real projects, clients, and outcomes (generic placeholders).
 const WORKS: [string, string, string, string, string, number][] = [
-  ['Angel Fertility', 'Growth Program', 'SEO', 'angel-fertility', 'clinic,medical,baby', 31],
-  ['Global IME', 'Local SEO Rebuild', 'SEO', 'global-ime', 'bank,building,city', 32],
-  ['Newa Foods', 'Packaging Rebrand', 'Branding', 'newa-foods', 'food,packaging,product', 33],
-  ['Thamel Mobility', 'E-commerce Build', 'Web', 'thamel-mobility', 'scooter,street,kathmandu', 34],
-  ['Everest Labs', 'Launch Film', 'Video', 'everest-labs', 'studio,product,technology', 35],
-  ['Pashupati Tea', 'Brand Photography', 'Photography', 'pashupati-tea', 'tea,plantation,green', 36],
-  ['Sagarmatha Bank', 'Paid Acquisition', 'Paid Media', 'sagarmatha-bank', 'finance,office,city', 37],
-  ['Gokarna Resort', 'Website & Booking', 'Web', 'gokarna-resort', 'resort,hotel,pool', 38],
-  ['Solu Coffee', 'Identity System', 'Branding', 'solu-coffee', 'coffee,cafe,beans', 39],
+  ['Healthcare Group', 'Organic Growth Program', 'SEO', 'sample-healthcare', 'clinic,medical,health', 31],
+  ['National Bank', 'Local SEO Rebuild', 'SEO', 'sample-bank', 'bank,building,city', 32],
+  ['FMCG Brand', 'Packaging Rebrand', 'Branding', 'sample-fmcg', 'food,packaging,product', 33],
+  ['Mobility Startup', 'E-commerce Build', 'Web', 'sample-mobility', 'scooter,street,city', 34],
+  ['Consumer Tech', 'Launch Film', 'Video', 'sample-tech', 'studio,product,technology', 35],
+  ['Beverage Brand', 'Brand Photography', 'Photography', 'sample-beverage', 'tea,plantation,green', 36],
+  ['Financial Services', 'Paid Acquisition', 'Paid Media', 'sample-finance', 'finance,office,city', 37],
+  ['Hospitality Group', 'Website & Booking', 'Web', 'sample-hospitality', 'resort,hotel,pool', 38],
+  ['Coffee Brand', 'Identity System', 'Branding', 'sample-coffee', 'coffee,cafe,beans', 39],
 ];
 function WorkGrid() {
   const [filter, setFilter] = useState('All');
@@ -1016,12 +1018,13 @@ function Tools() {
 /* ============================================================
    S14. Testimonials
    ============================================================ */
+// [CONFIRM] real quotes, names, and companies. Companies kept generic (no real clients).
 const TESTIMONIALS = [
-  { q: 'They rebuilt our category pages and organic became our top booking channel inside two quarters. The same strategist has been on every call since.', name: 'Anjana Shrestha', role: 'Marketing Lead, Himalayan Co', metric: '+187% organic', face: 12 },
-  { q: 'The launch film hit 1.2M views and actually moved pre-orders. One team briefed the ads off the same footage. No handoffs.', name: 'Bikash Gurung', role: 'Founder, Everest Labs', metric: '1.2M views', face: 33 },
-  { q: 'Cost per lead dropped 43% in a quarter and the monthly report finally made sense to our board. They report on what they promised.', name: 'Sita Maharjan', role: 'Head of Growth, Sagarmatha Bank', metric: '-43% CPL', face: 45 },
-  { q: 'We are based in Sydney and never felt the distance. English-first, on time, and senior people on the work the whole way through.', name: 'Daniel Pradhan', role: 'Director, Pradhan & Co', metric: 'AU client', face: 60 },
-  { q: 'They turned down a piece of work because it would not have moved the number. That is when I knew they were the right team.', name: 'Reema Karki', role: 'CMO, Angel Fertility', metric: 'Straight read', face: 5 },
+  { q: 'They rebuilt our category pages and organic became our top booking channel inside two quarters. The same strategist has been on every call since.', name: 'Anjana Shrestha', role: 'Marketing Lead, national retail brand', metric: '+187% organic', face: 12 },
+  { q: 'The launch film hit 1.2M views and actually moved pre-orders. One team briefed the ads off the same footage. No handoffs.', name: 'Bikash Gurung', role: 'Founder, consumer tech startup', metric: '1.2M views', face: 33 },
+  { q: 'Cost per lead dropped 43% in a quarter and the monthly report finally made sense to our board. They report on what they promised.', name: 'Sita Maharjan', role: 'Head of Growth, financial services firm', metric: '-43% CPL', face: 45 },
+  { q: 'We are based in Sydney and never felt the distance. English-first, on time, and senior people on the work the whole way through.', name: 'Daniel Pradhan', role: 'Director, Australian services firm', metric: 'AU client', face: 60 },
+  { q: 'They turned down a piece of work because it would not have moved the number. That is when I knew they were the right team.', name: 'Reema Karki', role: 'CMO, healthcare group', metric: 'Straight read', face: 5 },
 ];
 function Testimonials() {
   const [active, setActive] = useState(0);
@@ -1393,8 +1396,8 @@ function FloatingActions() {
           </motion.button>
         )}
       </AnimatePresence>
-      <a href="https://wa.me/97714000000" aria-label="Chat on WhatsApp" data-cursor
-        className="lg:hidden fixed right-5 bottom-5 z-40 w-14 h-14 rounded-full grid place-items-center text-white shadow-card-hover" style={{ background: 'var(--saffron)' }}>
+      <a href="https://wa.me/9779800000000" aria-label="Chat on WhatsApp" data-cursor
+        className="fixed right-5 bottom-5 z-40 w-14 h-14 rounded-full grid place-items-center text-white shadow-card-hover transition-transform duration-200 hover:scale-110" style={{ background: 'var(--saffron)' }}>
         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.2 7.2 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3A2.8 2.8 0 0 0 6.5 9a4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.6.1 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z" /></svg>
       </a>
     </>
