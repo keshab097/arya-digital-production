@@ -320,7 +320,7 @@ function Hero() {
   const lines: ReactNode[] = [
     'Digital solutions',
     'for digital',
-    <span key="np" className="text-saffron">नेपाल<span style={{ fontSize: '1.3em' }}>.</span></span>,
+    <span key="np" className="text-saffron">Nepal<span style={{ fontSize: '1.3em' }}>.</span></span>,
   ];
   return (
     <section className="relative bg-ink-deep grain overflow-hidden" aria-labelledby="hero-h1"
