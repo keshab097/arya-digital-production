@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       SEO  (section 5 of brief)
+       ============================================================ -->
+  <title>Arya Digital Production | Digital Agency Kathmandu Nepal</title>
+  <meta name="description" content="Kathmandu-based digital agency: SEO, social media, video production, podcasts, branding, training, and studio rental for brands across Nepal." />
+  <link rel="canonical" href="https://aryadigitalproduction.com/" />
+  <meta name="theme-color" content="#0B1437" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aryadigitalproduction.com/" />
+  <meta property="og:title" content="Arya Digital Production | Digital Agency Kathmandu Nepal" />
+  <meta property="og:description" content="Kathmandu-based digital agency: SEO, social media, video production, podcasts, branding, training, and studio rental for brands across Nepal." />
+  <meta property="og:image" content="https://aryadigitalproduction.com/og-image.jpg" /> <!-- [CONFIRM] supply 1200x630 OG image -->
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Arya Digital Production" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Arya Digital Production | Digital Agency Kathmandu Nepal" />
+  <meta name="twitter:description" content="Kathmandu-based digital agency: SEO, social media, video production, podcasts, branding, training, and studio rental for brands across Nepal." />
+  <meta name="twitter:image" content="https://aryadigitalproduction.com/og-image.jpg" /> <!-- [CONFIRM] -->
+
+  <!-- Favicon: inline SVG for the preview. [CONFIRM] ship a real favicon set (16, 32, 180 apple-touch, 512 maskable). -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B1437'/%3E%3Ctext x='6' y='23' font-family='Georgia,serif' font-size='18' fill='white'%3EA%3C/text%3E%3Ccircle cx='23' cy='20' r='2.4' fill='%23F59E0B'/%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> <!-- [CONFIRM] -->
+
+  <!-- ============================================================
+       Fonts  (next/font equivalent for a static file)
+       Instrument Serif (display), Inter (body), JetBrains Mono (numerals)
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+
+  <!-- ============================================================
+       Tailwind (Play CDN for instant preview).
+       PRODUCTION: compile Tailwind with the provided tailwind.config.js
+       + globals.css instead of this CDN. See README.
+       ============================================================ -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          // Tokens point at the CSS variables so they stay swappable.
+          colors: {
+            ink: 'var(--ink)',
+            'ink-soft': 'var(--ink-soft)',
+            surface: 'var(--surface)',
+            white: 'var(--white)',
+            saffron: 'var(--saffron)',
+            'saffron-deep': 'var(--saffron-deep)',
+            slate: 'var(--slate)',
+            'slate-soft': 'var(--slate-soft)',
+            mist: 'var(--mist)',
+            forest: 'var(--forest)',
+          },
+          fontFamily: {
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          maxWidth: { container: '1280px' },
+          boxShadow: {
+            card: '0 1px 3px rgba(11,20,55,0.08), 0 8px 24px rgba(11,20,55,0.04)',
+            'card-hover': '0 2px 6px rgba(11,20,55,0.06), 0 16px 40px rgba(11,20,55,0.08)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- ============================================================
+       Design system tokens + custom utilities (mirrors globals.css)
+       ============================================================ -->
+  <style>
+    :root {
+      --ink: #0B1437;          /* primary dark, hero bg, headlines */
+      --ink-soft: #1A2347;     /* hero overlay, depth */
+      --surface: #F7F4EE;      /* off-white section bg */
+      --white: #FFFFFF;        /* cards on surface */
+      --saffron: #F59E0B;      /* accent: CTAs, underlines */
+      --saffron-deep: #B45309; /* hover state */
+      --slate: #475569;        /* body text on light */
+      --slate-soft: #64748B;   /* secondary text */
+      --mist: #E7E2D8;         /* dividers, card borders */
+      --forest: #0F5132;       /* trust/results badges only */
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; color: var(--slate); background: var(--surface); -webkit-font-smoothing: antialiased; }
+
+    .font-display { font-family: 'Instrument Serif', Georgia, serif; }
+    .font-mono-num { font-family: 'JetBrains Mono', monospace; }
+
+    /* Eyebrow label */
+    .eyebrow { font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* H1 / H2 display sizing per type scale */
+    .h1-hero { font-size: clamp(40px, 7vw, 80px); line-height: 1.05; letter-spacing: -0.02em; font-weight: 400; }
+    .h2-section { font-size: clamp(28px, 4.4vw, 48px); line-height: 1.08; letter-spacing: -0.01em; font-weight: 400; }
+    .body-lg { font-size: 17px; line-height: 1.6; }
+
+    /* Section reveal (Framer-Motion whileInView equivalent) */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .45s ease-out, transform .45s ease-out; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; gap: .5rem; border-radius: 10px; font-weight: 600; font-size: 15px; padding: 13px 22px; transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease; cursor: pointer; }
+    .btn .arrow { transition: transform .2s ease; }
+    .btn:hover .arrow { transform: translateX(4px); }
+    .btn-primary { background: var(--saffron); color: var(--ink); }
+    .btn-primary:hover { background: var(--saffron-deep); color: #fff; }
+    .btn-outline-dark { border: 1.5px solid var(--ink); color: var(--ink); background: transparent; }
+    .btn-outline-dark:hover { background: var(--ink); color: #fff; }
+    .btn-outline-light { border: 1.5px solid rgba(255,255,255,.7); color: #fff; background: transparent; }
+    .btn-outline-light:hover { background: #fff; color: var(--ink); }
+
+    /* Card */
+    .card { background: var(--white); border: 1px solid var(--mist); border-radius: 12px; box-shadow: 0 1px 3px rgba(11,20,55,0.08), 0 8px 24px rgba(11,20,55,0.04); transition: transform .2s ease-out, box-shadow .2s ease-out; }
+    .card-lift:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(11,20,55,0.06), 0 16px 40px rgba(11,20,55,0.08); }
+
+    /* Link with sliding arrow */
+    .link-arrow { display: inline-flex; align-items: center; gap: 6px; color: var(--saffron); font-weight: 600; }
+    .link-arrow .arrow { transition: transform .2s ease; }
+    .link-arrow:hover .arrow { transform: translateX(4px); }
+
+    /* Saffron icon chip (Why Arya) */
+    .icon-chip { width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; background: rgba(245,158,11,0.12); color: var(--saffron); }
+
+    /* Silo pill */
+    .pill { display: inline-flex; align-items: center; padding: 5px 12px; border-radius: 999px; font-size: 13px; font-weight: 500; }
+
+    /* Grain overlay (1% noise) */
+    .grain::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .035;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Mega-menu dropdown */
+    .has-mega > .mega { opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .18s ease, transform .18s ease, visibility .18s; }
+    .has-mega:hover > .mega, .has-mega:focus-within > .mega { opacity: 1; visibility: visible; transform: translateY(0); }
+
+    /* Hide scrollbars on carousels */
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+    /* Skip link */
+    .skip-link { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--saffron); color: var(--ink); padding: 10px 16px; border-radius: 8px; font-weight: 600; transition: top .2s ease; }
+    .skip-link:focus { top: 12px; }
+
+    /* Visible focus rings (accessibility) */
+    a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--saffron); outline-offset: 2px; border-radius: 6px; }
+
+    /* Respect reduced motion: kill every transition/animation */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+
+  <!-- ============================================================
+       JSON-LD Schema: Organization + LocalBusiness + WebSite
+       [CONFIRM] phone, social URLs, geo before launch.
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://aryadigitalproduction.com/#organization",
+        "name": "Arya Digital Production",
+        "url": "https://aryadigitalproduction.com/",
+        "logo": "https://aryadigitalproduction.com/logo.png",
+        "sameAs": [
+          "https://www.linkedin.com/company/aryadigitalproduction",
+          "https://www.instagram.com/aryadigitalproduction",
+          "https://www.facebook.com/aryadigitalproduction",
+          "https://www.youtube.com/@aryadigitalproduction",
+          "https://www.tiktok.com/@aryadigitalproduction"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Okharbot Marg, New Baneshwor",
+          "addressLocality": "Kathmandu",
+          "addressCountry": "NP"
+        }
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://aryadigitalproduction.com/#localbusiness",
+        "name": "Arya Digital Production",
+        "image": "https://aryadigitalproduction.com/og-image.jpg",
+        "url": "https://aryadigitalproduction.com/",
+        "telephone": "+977-XXXXXXXXX",
+        "priceRange": "$$",
+        "areaServed": "Nepal",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Okharbot Marg, New Baneshwor",
+          "addressLocality": "Kathmandu",
+          "addressCountry": "NP"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "10:00",
+            "closes": "18:00"
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://aryadigitalproduction.com/#website",
+        "url": "https://aryadigitalproduction.com/",
+        "name": "Arya Digital Production",
+        "publisher": { "@id": "https://aryadigitalproduction.com/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://aryadigitalproduction.com/search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-surface text-slate">
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- ============================================================
+       4.1  GLOBAL HEADER (sticky)
+       ============================================================ -->
+  <header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-colors duration-300">
+    <div class="max-w-container mx-auto px-6 md:px-12">
+      <div class="flex items-center justify-between h-[72px]">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center font-display text-white text-2xl tracking-tight" aria-label="Arya Digital Production home">
+          <span>ARYA</span><span class="inline-block w-[7px] h-[7px] rounded-full bg-saffron ml-1 mb-1 self-end"></span>
+        </a>
+
+        <!-- Desktop mega-nav -->
+        <nav class="hidden lg:flex items-center gap-1" aria-label="Primary">
+          <!-- Digital Marketing -->
+          <div class="has-mega relative">
+            <a href="/digital-marketing/" class="px-3 py-2 text-[15px] text-white/85 hover:text-white font-medium inline-flex items-center gap-1">Digital Marketing</a>
+            <div class="mega absolute left-0 top-full pt-3">
+              <div class="card !bg-white p-6 w-[520px] grid grid-cols-2 gap-x-8 gap-y-1">
+                <p class="col-span-2 eyebrow text-slate-soft mb-1">Digital Marketing</p>
+                <a href="/digital-marketing/seo/" class="py-2 text-slate hover:text-ink text-[15px]">SEO</a>
+                <a href="/digital-marketing/sem/" class="py-2 text-slate hover:text-ink text-[15px]">SEM / Paid Ads</a>
+                <a href="/digital-marketing/social-media/" class="py-2 text-slate hover:text-ink text-[15px]">Social Media</a>
+                <a href="/digital-marketing/content/" class="py-2 text-slate hover:text-ink text-[15px]">Content Marketing</a>
+                <a href="/digital-marketing/email/" class="py-2 text-slate hover:text-ink text-[15px]">Email Marketing</a>
+                <a href="/digital-marketing/analytics-cro/" class="py-2 text-slate hover:text-ink text-[15px]">Analytics &amp; CRO</a>
+              </div>
+            </div>
+          </div>
+          <!-- Production -->
+          <div class="has-mega relative">
+            <a href="/production/" class="px-3 py-2 text-[15px] text-white/85 hover:text-white font-medium">Production</a>
+            <div class="mega absolute left-0 top-full pt-3">
+              <div class="card !bg-white p-6 w-[420px] grid grid-cols-2 gap-x-8 gap-y-1">
+                <p class="col-span-2 eyebrow text-slate-soft mb-1">Production</p>
+                <a href="/production/video/" class="py-2 text-slate hover:text-ink text-[15px]">Video Production</a>
+                <a href="/production/photography/" class="py-2 text-slate hover:text-ink text-[15px]">Photography</a>
+                <a href="/production/podcasts/" class="py-2 text-slate hover:text-ink text-[15px]">Podcasts</a>
+                <a href="/production/motion-graphics/" class="py-2 text-slate hover:text-ink text-[15px]">Motion Graphics</a>
+                <a href="/studio-rental/" class="py-2 text-slate hover:text-ink text-[15px]">Studio Rental</a>
+              </div>
+            </div>
+          </div>
+          <!-- Branding -->
+          <div class="has-mega relative">
+            <a href="/branding/" class="px-3 py-2 text-[15px] text-white/85 hover:text-white font-medium">Branding</a>
+            <div class="mega absolute left-0 top-full pt-3">
+              <div class="card !bg-white p-6 w-[420px] grid grid-cols-2 gap-x-8 gap-y-1">
+                <p class="col-span-2 eyebrow text-slate-soft mb-1">Branding</p>
+                <a href="/branding/strategy/" class="py-2 text-slate hover:text-ink text-[15px]">Brand Strategy</a>
+                <a href="/branding/logo-identity/" class="py-2 text-slate hover:text-ink text-[15px]">Logo &amp; Identity</a>
+                <a href="/branding/guidelines/" class="py-2 text-slate hover:text-ink text-[15px]">Brand Guidelines</a>
+                <a href="/branding/packaging/" class="py-2 text-slate hover:text-ink text-[15px]">Packaging</a>
+                <a href="/branding/naming/" class="py-2 text-slate hover:text-ink text-[15px]">Naming</a>
+              </div>
+            </div>
+          </div>
+          <!-- Training -->
+          <div class="has-mega relative">
+            <a href="/training/" class="px-3 py-2 text-[15px] text-white/85 hover:text-white font-medium">Training</a>
+            <div class="mega absolute left-0 top-full pt-3">
+              <div class="card !bg-white p-6 w-[420px] grid grid-cols-2 gap-x-8 gap-y-1">
+                <p class="col-span-2 eyebrow text-slate-soft mb-1">Training</p>
+                <a href="/training/digital-marketing-course/" class="py-2 text-slate hover:text-ink text-[15px]">Digital Marketing Course</a>
+                <a href="/training/seo-training/" class="py-2 text-slate hover:text-ink text-[15px]">SEO Training</a>
+                <a href="/training/content-workshop/" class="py-2 text-slate hover:text-ink text-[15px]">Content Workshop</a>
+                <a href="/training/corporate/" class="py-2 text-slate hover:text-ink text-[15px]">Corporate Workshops</a>
+              </div>
+            </div>
+          </div>
+          <!-- Web -->
+          <div class="has-mega relative">
+            <a href="/web/" class="px-3 py-2 text-[15px] text-white/85 hover:text-white font-medium">Web</a>
+            <div class="mega absolute left-0 top-full pt-3">
+              <div class="card !bg-white p-6 w-[420px] grid grid-cols-2 gap-x-8 gap-y-1">
+                <p class="col-span-2 eyebrow text-slate-soft mb-1">Web</p>
+                <a href="/web/design/" class="py-2 text-slate hover:text-ink text-[15px]">Web Design</a>
+                <a href="/web/development/" class="py-2 text-slate hover:text-ink text-[15px]">Web Development</a>
+                <a href="/web/ecommerce/" class="py-2 text-slate hover:text-ink text-[15px]">E-commerce</a>
+                <a href="/web/landing-pages/" class="py-2 text-slate hover:text-ink text-[15px]">Landing Pages</a>
+                <a href="/web/maintenance/" class="py-2 text-slate hover:text-ink text-[15px]">Care &amp; Maintenance</a>
+              </div>
+            </div>
+          </div>
+          <!-- Blog -->
+          <div class="has-mega relative">
+            <a href="/blog/" class="px-3 py-2 text-[15px] text-white/85 hover:text-white font-medium">Blog</a>
+            <div class="mega absolute left-0 top-full pt-3">
+              <div class="card !bg-white p-6 w-[360px] grid grid-cols-2 gap-x-8 gap-y-1">
+                <p class="col-span-2 eyebrow text-slate-soft mb-1">Reading Room</p>
+                <a href="/blog/" class="py-2 text-slate hover:text-ink text-[15px]">All Posts</a>
+                <a href="/blog/seo/" class="py-2 text-slate hover:text-ink text-[15px]">SEO</a>
+                <a href="/blog/paid-media/" class="py-2 text-slate hover:text-ink text-[15px]">Paid Media</a>
+                <a href="/case-studies/" class="py-2 text-slate hover:text-ink text-[15px]">Case Studies</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Right: phone + quote -->
+        <div class="hidden lg:flex items-center gap-5">
+          <a href="tel:+977XXXXXXXXX" class="text-white/85 hover:text-white text-[15px] font-medium">+977-XXXXXXXXX</a>
+          <a href="/contact/" class="btn btn-primary">Get a Quote</a>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button id="hamburger" class="lg:hidden text-white p-2" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile full-screen overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-[60] bg-ink text-white translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto" aria-hidden="true">
+    <div class="flex items-center justify-between h-[72px] px-6 border-b border-white/10">
+      <span class="font-display text-2xl">ARYA<span class="inline-block w-[7px] h-[7px] rounded-full bg-saffron ml-1"></span></span>
+      <button id="close-menu" class="p-2" aria-label="Close menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="px-6 py-2" aria-label="Mobile" id="mobile-accordions"></nav>
+    <div class="px-6 py-6 mt-2 border-t border-white/10 space-y-3">
+      <a href="/contact/" class="btn btn-primary w-full justify-center">Get a Quote</a>
+      <a href="tel:+977XXXXXXXXX" class="btn btn-outline-light w-full justify-center">Call +977-XXXXXXXXX</a>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ============================================================
+         4.2  HERO
+         ============================================================ -->
+    <section class="relative grain bg-ink overflow-hidden min-h-[600px] h-[85vh] flex items-center">
+      <!-- Faded duotone skyline, bottom-right, 15% opacity. [CONFIRM] swap with shoot file. -->
+      <img id="hero-skyline" src="https://picsum.photos/seed/arya-kathmandu-skyline/1100/700" alt="" aria-hidden="true"
+           class="pointer-events-none select-none absolute bottom-0 right-0 w-[60%] max-w-[760px] object-contain opacity-[0.15] mix-blend-luminosity" loading="eager" />
+      <div class="absolute inset-0" style="background: radial-gradient(120% 90% at 80% 100%, rgba(245,158,11,0.10), transparent 55%);"></div>
+
+      <div class="relative max-w-container mx-auto px-6 md:px-12 w-full">
+        <div class="max-w-[880px]">
+          <p class="eyebrow text-saffron mb-5">Kathmandu &middot; Nepal</p>
+          <h1 class="font-display h1-hero text-white max-w-[14ch] mb-6">
+            Digital Solutions for <span class="text-saffron">Digital</span> Nepal
+          </h1>
+          <p class="body-lg text-white/75 max-w-[640px] mb-9" style="font-size:clamp(17px,2.2vw,20px);">
+            Arya helps Nepali and global brands grow through SEO, paid media, video production, branding, and the training to keep building. One agency, 15 disciplines, one team in Kathmandu.
+          </p>
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="/contact/" class="btn btn-primary">Get a Quote <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a href="/portfolio/" class="btn btn-outline-light">See Our Work</a>
+          </div>
+
+          <!-- Trust strip -->
+          <div class="mt-12">
+            <p class="eyebrow text-saffron mb-4">Trusted by brands across Nepal &amp; beyond</p>
+            <ul class="flex flex-wrap items-center gap-x-8 gap-y-4" aria-label="Client logos">
+              <!-- [CONFIRM] replace text wordmarks with real client SVG logos -->
+              <li class="font-display text-white/40 hover:text-white/90 transition-colors text-xl">Himalayan&nbsp;Co</li>
+              <li class="font-display text-white/40 hover:text-white/90 transition-colors text-xl">Everest&nbsp;Labs</li>
+              <li class="font-display text-white/40 hover:text-white/90 transition-colors text-xl">Newa&nbsp;Foods</li>
+              <li class="font-display text-white/40 hover:text-white/90 transition-colors text-xl">Sagarmatha&nbsp;Bank</li>
+              <li class="font-display text-white/40 hover:text-white/90 transition-colors text-xl">Thamel&nbsp;Mobility</li>
+              <li class="font-display text-white/40 hover:text-white/90 transition-colors text-xl">Pashupati&nbsp;Tea</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4.3  SERVICES OVERVIEW  (Bento grid)
+         ============================================================ -->
+    <section class="bg-surface py-16 md:py-24">
+      <div class="max-w-container mx-auto px-6 md:px-12">
+        <div class="reveal mb-12">
+          <p class="eyebrow text-slate-soft mb-3">What we do</p>
+          <h2 class="font-display h2-section text-ink max-w-[16ch]">One agency. Every discipline you need.</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 reveal">
+
+          <!-- Digital Marketing (feature, 8 cols, ink bg).
+               Stretched-link overlay: the whole card hits the hub, while the silo
+               chips stay independently clickable. (A nested <a> is invalid HTML and
+               breaks the grid, so the card is a <div> with an absolute overlay link.) -->
+          <div class="card card-lift lg:col-span-8 md:col-span-2 !bg-ink !border-ink p-8 flex flex-col text-white group relative">
+            <a href="/digital-marketing/" class="absolute inset-0 z-[1] rounded-[12px]" aria-label="Digital Marketing"></a>
+            <span class="icon-chip mb-6"><!-- BarChart3 -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+            </span>
+            <h3 class="text-[22px] font-semibold tracking-[-0.005em] mb-2">Digital Marketing</h3>
+            <p class="text-white/70 max-w-[48ch] mb-6">Search, paid media, and social that compounds, ranked, measured, and tuned to how Nepal actually buys.</p>
+            <div class="flex flex-wrap gap-2 mb-6 mt-auto relative z-[2]">
+              <a href="/digital-marketing/seo/" class="pill bg-white/10 text-white hover:bg-saffron hover:text-ink transition-colors">SEO</a>
+              <a href="/digital-marketing/sem/" class="pill bg-white/10 text-white hover:bg-saffron hover:text-ink transition-colors">Paid Ads</a>
+              <a href="/digital-marketing/social-media/" class="pill bg-white/10 text-white hover:bg-saffron hover:text-ink transition-colors">Social Media</a>
+              <a href="/digital-marketing/content/" class="pill bg-white/10 text-white hover:bg-saffron hover:text-ink transition-colors">Content</a>
+            </div>
+            <span class="eyebrow text-saffron inline-flex items-center gap-1">Learn more <span class="arrow group-hover:translate-x-1 transition-transform" aria-hidden="true">&rarr;</span></span>
+          </div>
+
+          <!-- Production (4 cols, tall) -->
+          <a href="/production/" class="card card-lift lg:col-span-4 p-8 flex flex-col group">
+            <span class="icon-chip mb-6"><!-- Video -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
+            </span>
+            <h3 class="text-[22px] font-semibold tracking-[-0.005em] text-ink mb-2">Production</h3>
+            <p class="text-slate mb-6">Video, photography, and podcasts shot in-house, from the first board to the final cut.</p>
+            <span class="eyebrow text-saffron inline-flex items-center gap-1 mt-auto">Learn more <span class="arrow group-hover:translate-x-1 transition-transform" aria-hidden="true">&rarr;</span></span>
+          </a>
+
+          <!-- Branding (4) -->
+          <a href="/branding/" class="card card-lift lg:col-span-4 p-8 flex flex-col group">
+            <span class="icon-chip mb-6"><!-- Palette -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.555C21.965 6.012 17.461 2 12 2Z"/></svg>
+            </span>
+            <h3 class="text-[22px] font-semibold tracking-[-0.005em] text-ink mb-2">Branding</h3>
+            <p class="text-slate mb-6">Names, logos, and brand systems that hold up across every screen and shopfront.</p>
+            <span class="eyebrow text-saffron inline-flex items-center gap-1 mt-auto">Learn more <span class="arrow group-hover:translate-x-1 transition-transform" aria-hidden="true">&rarr;</span></span>
+          </a>
+
+          <!-- Web (4) -->
+          <a href="/web/" class="card card-lift lg:col-span-4 p-8 flex flex-col group">
+            <span class="icon-chip mb-6"><!-- Code2 -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+            </span>
+            <h3 class="text-[22px] font-semibold tracking-[-0.005em] text-ink mb-2">Web Design &amp; Development</h3>
+            <p class="text-slate mb-6">Fast, search-ready sites and stores built to convert, not just to look good.</p>
+            <span class="eyebrow text-saffron inline-flex items-center gap-1 mt-auto">Learn more <span class="arrow group-hover:translate-x-1 transition-transform" aria-hidden="true">&rarr;</span></span>
+          </a>
+
+          <!-- Training (4) -->
+          <a href="/training/" class="card card-lift lg:col-span-4 p-8 flex flex-col group">
+            <span class="icon-chip mb-6"><!-- GraduationCap -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+            </span>
+            <h3 class="text-[22px] font-semibold tracking-[-0.005em] text-ink mb-2">Training</h3>
+            <p class="text-slate mb-6">Workshops and courses that leave your team able to run the playbook in-house.</p>
+            <span class="eyebrow text-saffron inline-flex items-center gap-1 mt-auto">Learn more <span class="arrow group-hover:translate-x-1 transition-transform" aria-hidden="true">&rarr;</span></span>
+          </a>
+
+          <!-- Blog (6) -->
+          <a href="/blog/" class="card card-lift lg:col-span-6 p-8 flex flex-col group">
+            <span class="icon-chip mb-6"><!-- BookOpen -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+            </span>
+            <h3 class="text-[22px] font-semibold tracking-[-0.005em] text-ink mb-2">Blog &amp; Insights</h3>
+            <p class="text-slate mb-6">Field notes on SEO, paid media, and branding from the people doing the work.</p>
+            <span class="eyebrow text-saffron inline-flex items-center gap-1 mt-auto">Learn more <span class="arrow group-hover:translate-x-1 transition-transform" aria-hidden="true">&rarr;</span></span>
+          </a>
+
+          <!-- Studio Rental (6) -->
+          <a href="/studio-rental/" class="card card-lift lg:col-span-6 p-8 flex flex-col group">
+            <span class="icon-chip mb-6"><!-- Mic -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            </span>
+            <h3 class="text-[22px] font-semibold tracking-[-0.005em] text-ink mb-2">Studio Rental</h3>
+            <p class="text-slate mb-6">A wired, lit, sound-treated studio in New Baneshwor, booked by the hour or the day.</p>
+            <span class="eyebrow text-saffron inline-flex items-center gap-1 mt-auto">Learn more <span class="arrow group-hover:translate-x-1 transition-transform" aria-hidden="true">&rarr;</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4.4  WHY ARYA
+         ============================================================ -->
+    <section class="bg-white py-16 md:py-24">
+      <div class="max-w-container mx-auto px-6 md:px-12">
+        <div class="reveal mb-12">
+          <p class="eyebrow text-slate-soft mb-3">Why Arya</p>
+          <h2 class="font-display h2-section text-ink max-w-[20ch]">Built for brands that want to compound, not just launch.</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
+          <!-- 1 -->
+          <div class="p-2">
+            <span class="icon-chip mb-5"><!-- Users -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <h3 class="text-[20px] font-semibold text-ink mb-2">In-house production</h3>
+            <p class="text-slate text-[15px] leading-relaxed">From SEO strategy to the camera roll, one team, no agency telephone game.</p>
+          </div>
+          <!-- 2 -->
+          <div class="p-2">
+            <span class="icon-chip mb-5"><!-- MapPin -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <h3 class="text-[20px] font-semibold text-ink mb-2">Built for the Nepal market</h3>
+            <p class="text-slate text-[15px] leading-relaxed">Local search behavior, payment flows, and language nuance baked in.</p>
+          </div>
+          <!-- 3 -->
+          <div class="p-2">
+            <span class="icon-chip mb-5"><!-- BadgeCheck -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span>
+            <h3 class="text-[20px] font-semibold text-ink mb-2">Senior-led, not junior-staffed</h3>
+            <p class="text-slate text-[15px] leading-relaxed">Strategists run accounts. No bait-and-switch after the pitch.</p>
+          </div>
+          <!-- 4 -->
+          <div class="p-2">
+            <span class="icon-chip mb-5"><!-- Target -->
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </span>
+            <h3 class="text-[20px] font-semibold text-ink mb-2">Measurement first</h3>
+            <p class="text-slate text-[15px] leading-relaxed">Every engagement starts with GA4, GSC, GTM, and a target, not a guess.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4.5  FEATURED WORK  (carousel)
+         ============================================================ -->
+    <section class="bg-surface py-16 md:py-24">
+      <div class="max-w-container mx-auto px-6 md:px-12">
+        <div class="reveal flex items-end justify-between gap-6 mb-10">
+          <div>
+            <p class="eyebrow text-slate-soft mb-3">Selected work</p>
+            <h2 class="font-display h2-section text-ink">Recent projects.</h2>
+          </div>
+          <div class="hidden md:flex gap-2">
+            <button class="card !rounded-full w-11 h-11 grid place-items-center text-ink hover:text-saffron" data-carousel="prev" aria-label="Previous projects">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button class="card !rounded-full w-11 h-11 grid place-items-center text-ink hover:text-saffron" data-carousel="next" aria-label="Next projects">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- [CONFIRM] replace projects, covers, and outcomes with real case data -->
+        <div id="work-carousel" class="reveal flex gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-2 -mx-6 px-6 md:mx-0 md:px-0">
+          <!-- card -->
+          <a href="/case-studies/himalayan-co/" class="snap-start shrink-0 w-[78%] sm:w-[60%] md:w-[calc((100%-3rem)/3)] card card-lift overflow-hidden group">
+            <div class="aspect-video overflow-hidden"><img src="https://picsum.photos/seed/arya-work-1/640/360" width="640" height="360" loading="lazy" alt="Himalayan Co campaign cover" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" /></div>
+            <div class="p-6">
+              <p class="eyebrow text-slate-soft mb-2">Himalayan Co</p>
+              <h3 class="text-[20px] font-semibold text-ink mb-1">Organic Growth Engine</h3>
+              <p class="text-slate text-[15px] mb-4">Doubled organic traffic in 9 months.</p>
+              <span class="link-arrow text-[14px]">View case <span class="arrow" aria-hidden="true">&rarr;</span></span>
+            </div>
+          </a>
+          <a href="/case-studies/everest-labs/" class="snap-start shrink-0 w-[78%] sm:w-[60%] md:w-[calc((100%-3rem)/3)] card card-lift overflow-hidden group">
+            <div class="aspect-video overflow-hidden"><img src="https://picsum.photos/seed/arya-work-2/640/360" width="640" height="360" loading="lazy" alt="Everest Labs brand film cover" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" /></div>
+            <div class="p-6">
+              <p class="eyebrow text-slate-soft mb-2">Everest Labs</p>
+              <h3 class="text-[20px] font-semibold text-ink mb-1">Launch Film &amp; Rollout</h3>
+              <p class="text-slate text-[15px] mb-4">1.2M views on the launch film.</p>
+              <span class="link-arrow text-[14px]">View case <span class="arrow" aria-hidden="true">&rarr;</span></span>
+            </div>
+          </a>
+          <a href="/case-studies/newa-foods/" class="snap-start shrink-0 w-[78%] sm:w-[60%] md:w-[calc((100%-3rem)/3)] card card-lift overflow-hidden group">
+            <div class="aspect-video overflow-hidden"><img src="https://picsum.photos/seed/arya-work-3/640/360" width="640" height="360" loading="lazy" alt="Newa Foods rebrand cover" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" /></div>
+            <div class="p-6">
+              <p class="eyebrow text-slate-soft mb-2">Newa Foods</p>
+              <h3 class="text-[20px] font-semibold text-ink mb-1">Packaging Rebrand</h3>
+              <p class="text-slate text-[15px] mb-4">Shelf redesign across 40 SKUs.</p>
+              <span class="link-arrow text-[14px]">View case <span class="arrow" aria-hidden="true">&rarr;</span></span>
+            </div>
+          </a>
+          <a href="/case-studies/sagarmatha-bank/" class="snap-start shrink-0 w-[78%] sm:w-[60%] md:w-[calc((100%-3rem)/3)] card card-lift overflow-hidden group">
+            <div class="aspect-video overflow-hidden"><img src="https://picsum.photos/seed/arya-work-4/640/360" width="640" height="360" loading="lazy" alt="Sagarmatha Bank paid media cover" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" /></div>
+            <div class="p-6">
+              <p class="eyebrow text-slate-soft mb-2">Sagarmatha Bank</p>
+              <h3 class="text-[20px] font-semibold text-ink mb-1">Paid Acquisition</h3>
+              <p class="text-slate text-[15px] mb-4">Cut cost per lead by 43%.</p>
+              <span class="link-arrow text-[14px]">View case <span class="arrow" aria-hidden="true">&rarr;</span></span>
+            </div>
+          </a>
+          <a href="/case-studies/thamel-mobility/" class="snap-start shrink-0 w-[78%] sm:w-[60%] md:w-[calc((100%-3rem)/3)] card card-lift overflow-hidden group">
+            <div class="aspect-video overflow-hidden"><img src="https://picsum.photos/seed/arya-work-5/640/360" width="640" height="360" loading="lazy" alt="Thamel Mobility website cover" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" /></div>
+            <div class="p-6">
+              <p class="eyebrow text-slate-soft mb-2">Thamel Mobility</p>
+              <h3 class="text-[20px] font-semibold text-ink mb-1">E-commerce Build</h3>
+              <p class="text-slate text-[15px] mb-4">Store live in 6 weeks.</p>
+              <span class="link-arrow text-[14px]">View case <span class="arrow" aria-hidden="true">&rarr;</span></span>
+            </div>
+          </a>
+          <a href="/case-studies/pashupati-tea/" class="snap-start shrink-0 w-[78%] sm:w-[60%] md:w-[calc((100%-3rem)/3)] card card-lift overflow-hidden group">
+            <div class="aspect-video overflow-hidden"><img src="https://picsum.photos/seed/arya-work-6/640/360" width="640" height="360" loading="lazy" alt="Pashupati Tea podcast cover" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" /></div>
+            <div class="p-6">
+              <p class="eyebrow text-slate-soft mb-2">Pashupati Tea</p>
+              <h3 class="text-[20px] font-semibold text-ink mb-1">Branded Podcast</h3>
+              <p class="text-slate text-[15px] mb-4">12-episode series, in-studio.</p>
+              <span class="link-arrow text-[14px]">View case <span class="arrow" aria-hidden="true">&rarr;</span></span>
+            </div>
+          </a>
+        </div>
+
+        <div class="mt-8 reveal">
+          <a href="/portfolio/" class="link-arrow">Browse the full portfolio <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4.6  PROOF BAND  (stats, count-up)   [CONFIRM real numbers]
+         ============================================================ -->
+    <section class="bg-ink py-12">
+      <div class="max-w-container mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center reveal">
+          <div>
+            <div class="font-mono-num text-white text-[clamp(40px,7vw,64px)] leading-none" data-count="120" data-suffix="+">0</div>
+            <p class="eyebrow text-saffron mt-3">Projects delivered</p>
+          </div>
+          <div>
+            <div class="font-mono-num text-white text-[clamp(40px,7vw,64px)] leading-none" data-count="45" data-suffix="+">0</div>
+            <p class="eyebrow text-saffron mt-3">Active clients</p>
+          </div>
+          <div>
+            <div class="font-mono-num text-white text-[clamp(40px,7vw,64px)] leading-none" data-count="8" data-suffix="">0</div>
+            <p class="eyebrow text-saffron mt-3">Years in Kathmandu</p>
+          </div>
+          <div>
+            <div class="font-mono-num text-white text-[clamp(40px,7vw,64px)] leading-none" data-count="15" data-suffix="">0</div>
+            <p class="eyebrow text-saffron mt-3">Service disciplines</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4.7  CASE STUDY HIGHLIGHT
+         ============================================================ -->
+    <section class="bg-surface py-20">
+      <div class="max-w-container mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center reveal">
+          <!-- Left: 4:5 cover with badge -->
+          <div class="relative">
+            <div class="absolute top-4 left-4 z-10"><span class="eyebrow bg-saffron text-ink px-3 py-1.5 rounded-md">Case Study</span></div>
+            <div class="card overflow-hidden" style="aspect-ratio:4/5;">
+              <img src="https://picsum.photos/seed/arya-casestudy/720/900" width="720" height="900" loading="lazy" alt="Himalayan Co featured case study cover" class="w-full h-full object-cover" />
+            </div>
+          </div>
+          <!-- Right -->
+          <div>
+            <p class="eyebrow text-slate-soft mb-3">Himalayan Co</p> <!-- [CONFIRM] -->
+            <h2 class="font-display h2-section text-ink mb-5">The Organic Growth Engine</h2>
+            <p class="text-slate body-lg mb-7 max-w-[52ch]">A national outdoor brand stuck on page two. A rebuilt content architecture, technical SEO, and a steady publishing cadence moved the categories that actually drive revenue, then held the gains through the next two quarters.</p>
+            <div class="flex flex-wrap gap-3 mb-8">
+              <span class="pill bg-white border border-mist text-forest font-semibold">+187% organic traffic</span>
+              <span class="pill bg-white border border-mist text-forest font-semibold">-43% CPL</span>
+              <span class="pill bg-white border border-mist text-slate font-semibold">9 months</span>
+            </div>
+            <a href="/case-studies/himalayan-co/" class="link-arrow">Read the case study <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4.8  PROCESS
+         ============================================================ -->
+    <section class="bg-white py-16 md:py-24">
+      <div class="max-w-container mx-auto px-6 md:px-12">
+        <div class="reveal mb-14">
+          <p class="eyebrow text-slate-soft mb-3">How we work</p>
+          <h2 class="font-display h2-section text-ink">Four steps, repeated honestly.</h2>
+        </div>
+
+        <div class="relative reveal">
+          <!-- dashed connector (desktop) -->
+          <div class="hidden lg:block absolute left-0 right-0 top-[34px] border-t border-dashed border-mist" aria-hidden="true"></div>
+          <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-8 relative">
+            <div>
+              <div class="font-display text-saffron text-[56px] leading-none mb-4 bg-white pr-4 inline-block relative">01</div>
+              <h3 class="text-[20px] font-semibold text-ink mb-2">Audit</h3>
+              <p class="text-slate text-[15px] leading-relaxed max-w-[30ch]">Data first: GA4, GSC, ads, social. No strategy before evidence.</p>
+            </div>
+            <div>
+              <div class="font-display text-saffron text-[56px] leading-none mb-4 bg-white pr-4 inline-block relative">02</div>
+              <h3 class="text-[20px] font-semibold text-ink mb-2">Strategy</h3>
+              <p class="text-slate text-[15px] leading-relaxed max-w-[30ch]">A 90-day plan with named owners, exact deliverables, and the metrics it will be judged by.</p>
+            </div>
+            <div>
+              <div class="font-display text-saffron text-[56px] leading-none mb-4 bg-white pr-4 inline-block relative">03</div>
+              <h3 class="text-[20px] font-semibold text-ink mb-2">Execute</h3>
+              <p class="text-slate text-[15px] leading-relaxed max-w-[30ch]">Senior strategist on the account, in-house specialists on the work. Weekly check-ins.</p>
+            </div>
+            <div>
+              <div class="font-display text-saffron text-[56px] leading-none mb-4 bg-white pr-4 inline-block relative">04</div>
+              <h3 class="text-[20px] font-semibold text-ink mb-2">Compound</h3>
+              <p class="text-slate text-[15px] leading-relaxed max-w-[30ch]">Quarterly review against targets. Double down on what works, kill what does not.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4.9  TESTIMONIALS  (slider)   [CONFIRM real quotes]
+         ============================================================ -->
+    <section class="bg-surface py-16 md:py-24">
+      <div class="max-w-container mx-auto px-6 md:px-12">
+        <div class="reveal mb-12">
+          <p class="eyebrow text-slate-soft mb-3">What clients say</p>
+          <h2 class="font-display h2-section text-ink">Don't take our word.</h2>
+        </div>
+
+        <div class="reveal">
+          <div id="testimonial-track" class="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-6 -mx-6 px-6 md:mx-0 md:px-0">
+            <!-- card -->
+            <figure class="snap-center shrink-0 w-[88%] md:w-[calc((100%-1.5rem)/2)] card p-8">
+              <blockquote class="font-display text-[22px] text-ink leading-snug mb-6">"They rebuilt our category pages and organic leads went from a trickle to our top channel inside two quarters."</blockquote>
+              <figcaption class="flex items-center gap-3">
+                <img src="https://picsum.photos/seed/arya-person-1/80/80" width="40" height="40" loading="lazy" alt="" class="w-10 h-10 rounded-full object-cover" />
+                <div><p class="text-[16px] font-semibold text-ink">Anjana Shrestha</p><p class="text-[14px] text-slate-soft">Marketing Lead, Himalayan Co</p></div>
+              </figcaption>
+            </figure>
+            <figure class="snap-center shrink-0 w-[88%] md:w-[calc((100%-1.5rem)/2)] card p-8">
+              <blockquote class="font-display text-[22px] text-ink leading-snug mb-6">"The launch film hit 1.2M views and actually moved pre-orders. Senior people ran it start to finish."</blockquote>
+              <figcaption class="flex items-center gap-3">
+                <img src="https://picsum.photos/seed/arya-person-2/80/80" width="40" height="40" loading="lazy" alt="" class="w-10 h-10 rounded-full object-cover" />
+                <div><p class="text-[16px] font-semibold text-ink">Bikash Gurung</p><p class="text-[14px] text-slate-soft">Founder, Everest Labs</p></div>
+              </figcaption>
+            </figure>
+            <figure class="snap-center shrink-0 w-[88%] md:w-[calc((100%-1.5rem)/2)] card p-8">
+              <blockquote class="font-display text-[22px] text-ink leading-snug mb-6">"Cost per lead dropped 43% in one quarter, and the reporting finally made sense to our board."</blockquote>
+              <figcaption class="flex items-center gap-3">
+                <img src="https://picsum.photos/seed/arya-person-3/80/80" width="40" height="40" loading="lazy" alt="" class="w-10 h-10 rounded-full object-cover" />
+                <div><p class="text-[16px] font-semibold text-ink">Sita Maharjan</p><p class="text-[14px] text-slate-soft">Head of Growth, Sagarmatha Bank</p></div>
+              </figcaption>
+            </figure>
+          </div>
+          <div id="testimonial-dots" class="flex justify-center gap-2 mt-8" role="tablist" aria-label="Testimonials"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4.10  CLIENTS  (logo grid)   [CONFIRM real logos]
+         ============================================================ -->
+    <section class="bg-surface pb-16 md:pb-24">
+      <div class="max-w-container mx-auto px-6 md:px-12">
+        <p class="eyebrow text-slate-soft mb-8 reveal">The company we keep</p>
+        <div class="reveal grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-mist border border-mist rounded-xl overflow-hidden">
+          <!-- 15 placeholder wordmarks -->
+          <div class="bg-surface grid place-items-center py-10 px-4"><span class="font-display text-slate-soft/60 hover:text-ink transition-colors text-xl">Himalayan&nbsp;Co</span></div>
+          <div class="bg-surface grid place-items-center py-10 px-4"><span class="font-display text-slate-soft/60 hover:text-ink transition-colors text-xl">Everest&nbsp;Labs</span></div>
+          <div class="bg-surface grid place-items-center py-10 px-4"><span class="font-display text-slate-soft/60 hover:text-ink transition-colors text-xl">Newa&nbsp;Foods</span></div>
+          <div class="bg-surface grid place-items-center py-10 px-4"><span class="font-display text-slate-soft/60 hover:text-ink transition-colors text-xl">Sagarmatha&nbsp;Bank</span></div>
+          <div class="bg-surface grid place-items-center py-10 px-4"><span class="font-display text-slate-soft/60 hover:text-ink transition-colors text-xl">Thamel&nbsp;Mobility</span></div>
+          <div class="bg-surface grid place-items-center py-10 px-4"><span class="font-display text-slate-soft/60 hover:text-ink transition-colors text-xl">Pashupati&nbsp;Tea</span></div>
+          <div class="bg-surface grid place-items-center py-10 px-4"><span class="font-display text-slate-soft/60 hover:text-ink transition-colors text-xl">Annapurna&nbsp;Air</span></div>
+          <div class="bg-surface grid place-items-center py-10 px-4"><span class="font-display text-slate-soft/60 hover:text-ink transition-colors text-xl">Lumbini&nbsp;Care</span></div>
+          <div class="bg-surface grid place-items-center py-10 px-4"><span class="font-display text-slate-soft/60 hover:text-ink transition-colors text-xl">Patan&nbsp;Crafts</span></div>
+          <div class="bg-surface grid place-items-center py-10 px-4"><span class="font-display text-slate-soft/60 hover:text-ink transition-colors text-xl">Bagmati&nbsp;Homes</span></div>
+          <div class="bg-surface grid place-items-center py-10 px-4"><span class="font-display text-slate-soft/60 hover:text-ink transition-colors text-xl">Solu&nbsp;Coffee</span></div>
+          <div class="bg-surface grid place-items-center py-10 px-4"><span class="font-display text-slate-soft/60 hover:text-ink transition-colors text-xl">Mustang&nbsp;Wines</span></div>
+          <div class="bg-surface grid place-items-center py-10 px-4"><span class="font-display text-slate-soft/60 hover:text-ink transition-colors text-xl">Kirtipur&nbsp;Tech</span></div>
+          <div class="bg-surface grid place-items-center py-10 px-4"><span class="font-display text-slate-soft/60 hover:text-ink transition-colors text-xl">Gokarna&nbsp;Resort</span></div>
+          <div class="bg-surface grid place-items-center py-10 px-4"><span class="font-display text-slate-soft/60 hover:text-ink transition-colors text-xl">Dhulikhel&nbsp;Health</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4.11  INSIGHTS  (3 latest posts)   [CONFIRM real posts]
+         ============================================================ -->
+    <section class="bg-white py-16 md:py-24">
+      <div class="max-w-container mx-auto px-6 md:px-12">
+        <div class="reveal mb-12">
+          <p class="eyebrow text-slate-soft mb-3">Reading room</p>
+          <h2 class="font-display h2-section text-ink">Notes from the agency.</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+          <a href="/blog/local-seo-kathmandu/" class="card card-lift overflow-hidden group">
+            <div class="aspect-video overflow-hidden"><img src="https://picsum.photos/seed/arya-post-1/640/360" width="640" height="360" loading="lazy" alt="Local SEO in Kathmandu article cover" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" /></div>
+            <div class="p-6">
+              <p class="eyebrow text-saffron mb-2">SEO</p>
+              <h3 class="text-[20px] font-semibold text-ink leading-snug line-clamp-2 mb-3">Local SEO in Kathmandu: the ranking signals that actually move the map</h3>
+              <p class="text-[13px] text-slate-soft">7 min read &middot; May 28, 2026</p>
+            </div>
+          </a>
+          <a href="/blog/paid-media-rupee-budgets/" class="card card-lift overflow-hidden group">
+            <div class="aspect-video overflow-hidden"><img src="https://picsum.photos/seed/arya-post-2/640/360" width="640" height="360" loading="lazy" alt="Paid media on rupee budgets article cover" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" /></div>
+            <div class="p-6">
+              <p class="eyebrow text-saffron mb-2">Paid Media</p>
+              <h3 class="text-[20px] font-semibold text-ink leading-snug line-clamp-2 mb-3">Stretching a rupee budget: paid media structures that survive small spend</h3>
+              <p class="text-[13px] text-slate-soft">6 min read &middot; May 14, 2026</p>
+            </div>
+          </a>
+          <a href="/blog/brand-systems-that-scale/" class="card card-lift overflow-hidden group">
+            <div class="aspect-video overflow-hidden"><img src="https://picsum.photos/seed/arya-post-3/640/360" width="640" height="360" loading="lazy" alt="Brand systems that scale article cover" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300" /></div>
+            <div class="p-6">
+              <p class="eyebrow text-saffron mb-2">Branding</p>
+              <h3 class="text-[20px] font-semibold text-ink leading-snug line-clamp-2 mb-3">Brand systems that scale: building identity past the logo</h3>
+              <p class="text-[13px] text-slate-soft">5 min read &middot; April 30, 2026</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="mt-10 text-center reveal">
+          <a href="/blog/" class="link-arrow">Read more from the team <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4.12  CTA BAND
+         ============================================================ -->
+    <section class="bg-ink py-20 md:py-24 grain relative overflow-hidden">
+      <div class="max-w-container mx-auto px-6 md:px-12 relative">
+        <div class="max-w-[640px] mx-auto text-center reveal">
+          <p class="eyebrow text-saffron mb-4">Start the conversation</p>
+          <h2 class="font-display text-white mb-5" style="font-size:clamp(30px,5vw,48px); line-height:1.1; letter-spacing:-0.01em;">Let's see if we're the right fit.</h2>
+          <p class="text-white/75 mb-9 max-w-[540px] mx-auto" style="font-size:18px; line-height:1.6;">Share the brand and the problem. Expect a frank read within one business day on whether it is a fit.</p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="/contact/" class="btn btn-primary">Get a Quote <span class="arrow" aria-hidden="true">&rarr;</span></a>
+            <a href="mailto:hello@aryadigitalproduction.com" class="btn btn-outline-light">Email us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       4.13  FOOTER
+       ============================================================ -->
+  <footer class="bg-ink text-white/75">
+    <div class="max-w-container mx-auto px-6 md:px-12 py-16">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+
+        <!-- Col 1: brand + NAP -->
+        <div class="col-span-2 md:col-span-3 lg:col-span-1">
+          <span class="font-display text-white text-2xl">ARYA<span class="inline-block w-[7px] h-[7px] rounded-full bg-saffron ml-1"></span></span>
+          <p class="mt-4 text-[15px] leading-relaxed">Kathmandu-based digital agency.</p>
+          <address class="not-italic mt-4 text-[15px] leading-relaxed space-y-1">
+            <p class="text-white font-medium">Arya Digital Production</p>
+            <p>Okharbot Marg, New Baneshwor, Kathmandu</p>
+            <p><a href="tel:+977XXXXXXXXX" class="hover:text-white">+977-XXXXXXXXX</a></p>
+            <p><a href="mailto:hello@aryadigitalproduction.com" class="hover:text-white">hello@aryadigitalproduction.com</a></p>
+          </address>
+        </div>
+
+        <!-- Col 2: Services -->
+        <div class="footer-col">
+          <h3 class="text-white font-semibold text-[15px] mb-4 footer-head">Services</h3>
+          <ul class="space-y-3 text-[15px] footer-links">
+            <li><a href="/digital-marketing/" class="hover:text-white">Digital Marketing</a></li>
+            <li><a href="/production/" class="hover:text-white">Production</a></li>
+            <li><a href="/branding/" class="hover:text-white">Branding</a></li>
+            <li><a href="/web/" class="hover:text-white">Web</a></li>
+            <li><a href="/training/" class="hover:text-white">Training</a></li>
+            <li><a href="/blog/" class="hover:text-white">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Company -->
+        <div class="footer-col">
+          <h3 class="text-white font-semibold text-[15px] mb-4 footer-head">Company</h3>
+          <ul class="space-y-3 text-[15px] footer-links">
+            <li><a href="/about/" class="hover:text-white">About</a></li>
+            <li><a href="/careers/" class="hover:text-white">Careers</a></li>
+            <li><a href="/contact/" class="hover:text-white">Contact</a></li>
+            <li><a href="/portfolio/" class="hover:text-white">Portfolio</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Resources -->
+        <div class="footer-col">
+          <h3 class="text-white font-semibold text-[15px] mb-4 footer-head">Resources</h3>
+          <ul class="space-y-3 text-[15px] footer-links">
+            <li><a href="/blog/" class="hover:text-white">Blog</a></li>
+            <li><a href="/case-studies/" class="hover:text-white">Case Studies</a></li>
+            <li><a href="/studio-rental/" class="hover:text-white">Studio Rental</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Stay in touch -->
+        <div class="col-span-2 lg:col-span-1">
+          <h3 class="text-white font-semibold text-[15px] mb-4">Stay in touch</h3>
+          <form class="flex gap-2 mb-5" id="newsletter" novalidate>
+            <input type="email" required placeholder="Email address" aria-label="Email address" class="flex-1 min-w-0 bg-white/10 border border-white/15 rounded-lg px-3 py-2.5 text-[15px] text-white placeholder-white/40 focus:bg-white/15" />
+            <button type="submit" class="btn btn-primary !px-4 !py-2.5" aria-label="Subscribe">&rarr;</button>
+          </form>
+          <p id="newsletter-msg" class="text-[13px] text-saffron mb-5 hidden">Thanks, you are on the list.</p>
+          <div class="flex gap-3">
+            <a href="https://linkedin.com/company/aryadigitalproduction" aria-label="LinkedIn" class="w-9 h-9 grid place-items-center rounded-full bg-white/10 hover:bg-saffron hover:text-ink transition-colors">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21H21.4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H13.7V9z"/></svg>
+            </a>
+            <a href="https://instagram.com/aryadigitalproduction" aria-label="Instagram" class="w-9 h-9 grid place-items-center rounded-full bg-white/10 hover:bg-saffron hover:text-ink transition-colors">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://facebook.com/aryadigitalproduction" aria-label="Facebook" class="w-9 h-9 grid place-items-center rounded-full bg-white/10 hover:bg-saffron hover:text-ink transition-colors">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-3 1.8-3 3.5V11H9v3h2v7h3v-7h2.5l.5-3H14V9.5c0-.3.2-.5.5-.5z"/></svg>
+            </a>
+            <a href="https://youtube.com/@aryadigitalproduction" aria-label="YouTube" class="w-9 h-9 grid place-items-center rounded-full bg-white/10 hover:bg-saffron hover:text-ink transition-colors">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.3-.4-4.9a2.5 2.5 0 0 0-1.8-1.8C19.2 5 12 5 12 5s-7.2 0-8.8.3A2.5 2.5 0 0 0 1.4 7.1C1 8.7 1 12 1 12s0 3.3.4 4.9a2.5 2.5 0 0 0 1.8 1.8C4.8 19 12 19 12 19s7.2 0 8.8-.3a2.5 2.5 0 0 0 1.8-1.8C23 15.3 23 12 23 12zm-13 3.2V8.8l5.5 3.2z"/></svg>
+            </a>
+            <a href="https://tiktok.com/@aryadigitalproduction" aria-label="TikTok" class="w-9 h-9 grid place-items-center rounded-full bg-white/10 hover:bg-saffron hover:text-ink transition-colors">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.3 2.2 1.5 3.7 3.6 4v2.6c-1.3.1-2.5-.3-3.6-1v5.7a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v2.7a3 3 0 1 0 2.1 2.9V3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom strip -->
+    <div class="border-t border-white/15">
+      <div class="max-w-container mx-auto px-6 md:px-12 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[13px]">
+        <p>&copy; 2026 Arya Digital Production. All rights reserved.</p>
+        <p class="flex items-center gap-3">
+          <a href="/privacy/" class="hover:text-white">Privacy</a><span aria-hidden="true">&middot;</span>
+          <a href="/terms/" class="hover:text-white">Terms</a><span aria-hidden="true">&middot;</span>
+          <a href="/sitemap.xml" class="hover:text-white">Sitemap</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       4.14  FLOATING ACTIONS (mobile)
+       ============================================================ -->
+  <!-- Back to top -->
+  <button id="back-to-top" class="fixed bottom-[150px] right-5 z-40 w-11 h-11 rounded-full grid place-items-center bg-ink/85 text-white backdrop-blur opacity-0 pointer-events-none transition-opacity duration-300" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+  <!-- WhatsApp (mobile) -->
+  <a href="https://wa.me/977XXXXXXXXX" aria-label="Chat on WhatsApp" class="lg:hidden fixed bottom-[84px] right-5 z-40 w-14 h-14 rounded-full grid place-items-center bg-saffron text-white shadow-lg">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.2 7.2 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3A2.8 2.8 0 0 0 6.5 9a4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c.6.3 1.1.4 1.5.5a3.6 3.6 0 0 0 1.6.1 2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+  </a>
+  <!-- Phone (mobile) -->
+  <a href="tel:+977XXXXXXXXX" aria-label="Call us" class="lg:hidden fixed bottom-[84px] left-5 z-40 w-14 h-14 rounded-full grid place-items-center bg-ink text-white shadow-lg">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+
+  <!-- ============================================================
+       SCRIPTS  (vanilla, no framework)
+       ============================================================ -->
+  <script>
+  (function () {
+    'use strict';
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ---- Sticky header: solid ink after 80px -------------------
+    var header = document.getElementById('site-header');
+    function onScrollHeader() {
+      if (window.scrollY > 80) {
+        header.style.background = 'var(--ink)';
+        header.style.borderBottom = '1px solid var(--mist)';
+      } else {
+        header.style.background = 'transparent';
+        header.style.borderBottom = '1px solid transparent';
+      }
+    }
+    onScrollHeader();
+
+    // ---- Hero parallax (subtle, 8%) ----------------------------
+    var skyline = document.getElementById('hero-skyline');
+    function onScrollParallax() {
+      if (reduceMotion || !skyline) return;
+      var y = Math.min(window.scrollY, 700);
+      skyline.style.transform = 'translateY(-' + (y * 0.08) + 'px)';
+    }
+
+    window.addEventListener('scroll', function () {
+      onScrollHeader();
+      onScrollParallax();
+      onScrollBackToTop();
+    }, { passive: true });
+
+    // ---- Mobile menu (build accordions from desktop mega data) -
+    var pillars = [
+      { label: 'Digital Marketing', href: '/digital-marketing/', silos: [['SEO','/digital-marketing/seo/'],['SEM / Paid Ads','/digital-marketing/sem/'],['Social Media','/digital-marketing/social-media/'],['Content Marketing','/digital-marketing/content/'],['Email Marketing','/digital-marketing/email/'],['Analytics & CRO','/digital-marketing/analytics-cro/']] },
+      { label: 'Production', href: '/production/', silos: [['Video Production','/production/video/'],['Photography','/production/photography/'],['Podcasts','/production/podcasts/'],['Motion Graphics','/production/motion-graphics/'],['Studio Rental','/studio-rental/']] },
+      { label: 'Branding', href: '/branding/', silos: [['Brand Strategy','/branding/strategy/'],['Logo & Identity','/branding/logo-identity/'],['Brand Guidelines','/branding/guidelines/'],['Packaging','/branding/packaging/'],['Naming','/branding/naming/']] },
+      { label: 'Training', href: '/training/', silos: [['Digital Marketing Course','/training/digital-marketing-course/'],['SEO Training','/training/seo-training/'],['Content Workshop','/training/content-workshop/'],['Corporate Workshops','/training/corporate/']] },
+      { label: 'Web', href: '/web/', silos: [['Web Design','/web/design/'],['Web Development','/web/development/'],['E-commerce','/web/ecommerce/'],['Landing Pages','/web/landing-pages/'],['Care & Maintenance','/web/maintenance/']] },
+      { label: 'Blog', href: '/blog/', silos: [['All Posts','/blog/'],['SEO','/blog/seo/'],['Paid Media','/blog/paid-media/'],['Case Studies','/case-studies/']] }
+    ];
+    var accWrap = document.getElementById('mobile-accordions');
+    pillars.forEach(function (p, i) {
+      var item = document.createElement('div');
+      item.className = 'border-b border-white/10';
+      var siloLinks = p.silos.map(function (s) {
+        return '<a href="' + s[1] + '" class="block py-2 text-white/70 hover:text-white text-[15px]">' + s[0] + '</a>';
+      }).join('');
+      item.innerHTML =
+        '<button class="acc-trigger w-full flex items-center justify-between py-4 text-left text-white text-[18px] font-medium" aria-expanded="false">' +
+          '<span>' + p.label + '</span>' +
+          '<svg class="acc-chevron transition-transform" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>' +
+        '</button>' +
+        '<div class="acc-panel overflow-hidden" style="max-height:0; transition:max-height .25s ease;">' +
+          '<div class="pb-4 pl-1 space-y-1"><a href="' + p.href + '" class="block py-2 text-saffron text-[15px] font-medium">All ' + p.label + ' &rarr;</a>' + siloLinks + '</div>' +
+        '</div>';
+      accWrap.appendChild(item);
+    });
+    accWrap.addEventListener('click', function (e) {
+      var trigger = e.target.closest('.acc-trigger');
+      if (!trigger) return;
+      var panel = trigger.nextElementSibling;
+      var chevron = trigger.querySelector('.acc-chevron');
+      var open = trigger.getAttribute('aria-expanded') === 'true';
+      trigger.setAttribute('aria-expanded', String(!open));
+      panel.style.maxHeight = open ? '0' : panel.scrollHeight + 'px';
+      if (chevron) chevron.style.transform = open ? 'none' : 'rotate(180deg)';
+    });
+
+    var menu = document.getElementById('mobile-menu');
+    var hamburger = document.getElementById('hamburger');
+    var closeBtn = document.getElementById('close-menu');
+    function openMenu() {
+      menu.classList.remove('translate-x-full');
+      menu.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      menu.classList.add('translate-x-full');
+      menu.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    menu.addEventListener('click', function (e) { if (e.target.tagName === 'A') closeMenu(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+
+    // ---- Reveal on scroll (IntersectionObserver, threshold .2) -
+    var reveals = document.querySelectorAll('.reveal');
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      reveals.forEach(function (el) { el.classList.add('in'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.2 });
+      reveals.forEach(function (el) { io.observe(el); });
+    }
+
+    // ---- Count-up stats ----------------------------------------
+    function runCount(el) {
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var suffix = el.getAttribute('data-suffix') || '';
+      if (reduceMotion) { el.textContent = target + suffix; return; }
+      var start = null, dur = 900;
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(eased * target) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    var counters = document.querySelectorAll('[data-count]');
+    if (!('IntersectionObserver' in window)) {
+      counters.forEach(runCount);
+    } else {
+      var cio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { runCount(entry.target); cio.unobserve(entry.target); }
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(function (el) { cio.observe(el); });
+    }
+
+    // ---- Featured work carousel (chevrons) ---------------------
+    var carousel = document.getElementById('work-carousel');
+    document.querySelectorAll('[data-carousel]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var amount = carousel.clientWidth * 0.8;
+        carousel.scrollBy({ left: btn.getAttribute('data-carousel') === 'next' ? amount : -amount, behavior: reduceMotion ? 'auto' : 'smooth' });
+      });
+    });
+
+    // ---- Testimonials dots -------------------------------------
+    var track = document.getElementById('testimonial-track');
+    var dotsWrap = document.getElementById('testimonial-dots');
+    if (track && dotsWrap) {
+      var cards = track.children;
+      for (var i = 0; i < cards.length; i++) {
+        (function (idx) {
+          var dot = document.createElement('button');
+          dot.className = 'w-2.5 h-2.5 rounded-full bg-mist transition-colors';
+          dot.setAttribute('role', 'tab');
+          dot.setAttribute('aria-label', 'Go to testimonial ' + (idx + 1));
+          dot.addEventListener('click', function () {
+            cards[idx].scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+          });
+          dotsWrap.appendChild(dot);
+        })(i);
+      }
+      var dots = dotsWrap.children;
+      function syncDots() {
+        var center = track.scrollLeft + track.clientWidth / 2;
+        var active = 0, best = Infinity;
+        for (var j = 0; j < cards.length; j++) {
+          var c = cards[j];
+          var mid = c.offsetLeft + c.clientWidth / 2;
+          var d = Math.abs(mid - center);
+          if (d < best) { best = d; active = j; }
+        }
+        for (var k = 0; k < dots.length; k++) {
+          dots[k].style.background = k === active ? 'var(--saffron)' : 'var(--mist)';
+          dots[k].style.width = k === active ? '24px' : '10px';
+        }
+      }
+      track.addEventListener('scroll', function () { window.requestAnimationFrame(syncDots); }, { passive: true });
+      syncDots();
+    }
+
+    // ---- Back to top (after 600px) -----------------------------
+    var toTop = document.getElementById('back-to-top');
+    function onScrollBackToTop() {
+      if (window.scrollY > 600) { toTop.style.opacity = '1'; toTop.style.pointerEvents = 'auto'; }
+      else { toTop.style.opacity = '0'; toTop.style.pointerEvents = 'none'; }
+    }
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+
+    // ---- Newsletter (no backend; wire to provider before launch)
+    var nl = document.getElementById('newsletter');
+    if (nl) {
+      nl.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var input = nl.querySelector('input');
+        if (!input.value || input.validity.typeMismatch) { input.focus(); return; }
+        document.getElementById('newsletter-msg').classList.remove('hidden');
+        nl.reset();
+      });
+    }
+  })();
+  </script>
+</body>
+</html>

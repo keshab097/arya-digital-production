@@ -1,0 +1,130 @@
+/* ==================================================================
+   Arya Digital Production — globals.css
+   Design tokens + custom utilities, extracted from index.html.
+
+   Production usage (Next.js or a compiled static build):
+     1. @import or @tailwind the three layers below.
+     2. Compile with tailwind.config.js.
+     3. Delete the Tailwind Play CDN <script> from the HTML head.
+   The tokens are CSS custom properties so the whole palette is
+   swappable at runtime without recompiling.
+   ================================================================== */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- Color tokens (locked) -------------------------------------- */
+:root {
+  --ink: #0B1437;          /* primary dark, hero bg, headlines */
+  --ink-soft: #1A2347;     /* hero overlay, depth */
+  --surface: #F7F4EE;      /* off-white section bg */
+  --white: #FFFFFF;        /* cards on surface */
+  --saffron: #F59E0B;      /* accent: CTAs, underlines (keep under ~10% of pixels) */
+  --saffron-deep: #B45309; /* hover state */
+  --slate: #475569;        /* body text on light */
+  --slate-soft: #64748B;   /* secondary text */
+  --mist: #E7E2D8;         /* dividers, card borders (never pure black) */
+  --forest: #0F5132;       /* trust / results badges only */
+}
+
+/* ---- Base ------------------------------------------------------- */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--slate);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Typography helpers ----------------------------------------- */
+.font-display { font-family: 'Instrument Serif', Georgia, serif; }
+.font-mono-num { font-family: 'JetBrains Mono', monospace; }
+
+.eyebrow {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* H1 hero: 64–80 / 40–48 mobile, weight 400, tracking -0.02em */
+.h1-hero { font-size: clamp(40px, 7vw, 80px); line-height: 1.05; letter-spacing: -0.02em; font-weight: 400; }
+/* H2 section: 40–48 / 28–32 mobile, weight 400, tracking -0.01em */
+.h2-section { font-size: clamp(28px, 4.4vw, 48px); line-height: 1.08; letter-spacing: -0.01em; font-weight: 400; }
+/* Body: 17 / 16 mobile, line-height 1.6 */
+.body-lg { font-size: 17px; line-height: 1.6; }
+
+/* ---- Section reveal (Framer Motion whileInView equivalent) ------ */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .45s ease-out, transform .45s ease-out; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ---- Buttons ---------------------------------------------------- */
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  border-radius: 10px; font-weight: 600; font-size: 15px;
+  padding: 13px 22px; cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+}
+.btn .arrow { transition: transform .2s ease; }
+.btn:hover .arrow { transform: translateX(4px); }
+
+.btn-primary { background: var(--saffron); color: var(--ink); }
+.btn-primary:hover { background: var(--saffron-deep); color: #fff; }
+
+.btn-outline-dark { border: 1.5px solid var(--ink); color: var(--ink); background: transparent; }
+.btn-outline-dark:hover { background: var(--ink); color: #fff; }
+
+.btn-outline-light { border: 1.5px solid rgba(255,255,255,.7); color: #fff; background: transparent; }
+.btn-outline-light:hover { background: #fff; color: var(--ink); }
+
+/* ---- Card ------------------------------------------------------- */
+.card {
+  background: var(--white);
+  border: 1px solid var(--mist);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(11,20,55,0.08), 0 8px 24px rgba(11,20,55,0.04);
+  transition: transform .2s ease-out, box-shadow .2s ease-out;
+}
+.card-lift:hover { transform: translateY(-4px); box-shadow: 0 2px 6px rgba(11,20,55,0.06), 0 16px 40px rgba(11,20,55,0.08); }
+
+/* ---- Link with sliding arrow ------------------------------------ */
+.link-arrow { display: inline-flex; align-items: center; gap: 6px; color: var(--saffron); font-weight: 600; }
+.link-arrow .arrow { transition: transform .2s ease; }
+.link-arrow:hover .arrow { transform: translateX(4px); }
+
+/* ---- Saffron icon chip ------------------------------------------ */
+.icon-chip { width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; background: rgba(245,158,11,0.12); color: var(--saffron); }
+
+/* ---- Pill ------------------------------------------------------- */
+.pill { display: inline-flex; align-items: center; padding: 5px 12px; border-radius: 999px; font-size: 13px; font-weight: 500; }
+
+/* ---- Grain overlay (1% noise) ----------------------------------- */
+.grain::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- Mega-menu dropdown ----------------------------------------- */
+.has-mega > .mega { opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .18s ease, transform .18s ease, visibility .18s; }
+.has-mega:hover > .mega, .has-mega:focus-within > .mega { opacity: 1; visibility: visible; transform: translateY(0); }
+
+/* ---- Utilities -------------------------------------------------- */
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* ---- Skip link -------------------------------------------------- */
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--saffron); color: var(--ink); padding: 10px 16px; border-radius: 8px; font-weight: 600; transition: top .2s ease; }
+.skip-link:focus { top: 12px; }
+
+/* ---- Visible focus rings (WCAG AA) ------------------------------ */
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--saffron); outline-offset: 2px; border-radius: 6px; }
+
+/* ---- Reduced motion: kill every animation/transition ------------ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}

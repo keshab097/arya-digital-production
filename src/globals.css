@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==================================================================
+   Design tokens (locked). Per the brief these live in CSS variables,
+   not the Tailwind theme, so the palette is swappable in one place.
+   ================================================================== */
+:root {
+  /* Surfaces */
+  --ink: #0b1437;
+  --ink-deep: #060b22;
+  --ink-soft: #1a2347;
+  --surface: #f7f4ee;
+  --paper: #fdfbf6;
+  --white: #ffffff;
+  --mist: #e7e2d8;
+
+  /* Accent */
+  --saffron: #f59e0b;
+  --saffron-deep: #b45309;
+  --saffron-glow: rgba(245, 158, 11, 0.16);
+  --cream: #ffe8b8;
+
+  /* Text */
+  --ink-text: #0b1437;
+  --slate: #475569;
+  --slate-soft: #64748b;
+  --on-dark: rgba(255, 255, 255, 0.92);
+  --on-dark-soft: rgba(255, 255, 255, 0.66);
+
+  /* Semantic */
+  --forest: #0f5132;
+  --danger: #b91c1c;
+
+  /* Type */
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Radii */
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 20px;
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==================================================================
+   Base
+   ================================================================== */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--slate);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--saffron); color: var(--ink); }
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--saffron);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ==================================================================
+   Typography helpers
+   ================================================================== */
+.font-display { font-family: var(--font-display); font-weight: 400; }
+.font-body { font-family: var(--font-body); }
+.font-mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  line-height: 1;
+}
+
+.h1-hero { font-size: clamp(56px, 9.5vw, 140px); line-height: 0.95; letter-spacing: -0.03em; }
+.h2-section { font-size: clamp(40px, 6vw, 72px); line-height: 1.0; letter-spacing: -0.02em; }
+.pull-quote { font-size: clamp(32px, 4.4vw, 56px); line-height: 1.1; letter-spacing: -0.015em; }
+.editorial { font-size: clamp(28px, 3.2vw, 40px); line-height: 1.25; letter-spacing: -0.01em; }
+.body-lg { font-size: clamp(17px, 1.4vw, 20px); line-height: 1.5; }
+
+.text-balance { text-wrap: balance; }
+
+/* ==================================================================
+   Semantic color utilities (CSS-variable backed). Names chosen to
+   not collide with Tailwind's own (which require a shade suffix).
+   ================================================================== */
+.bg-ink { background-color: var(--ink); }
+.bg-ink-deep { background-color: var(--ink-deep); }
+.bg-ink-soft { background-color: var(--ink-soft); }
+.bg-surface { background-color: var(--surface); }
+.bg-paper { background-color: var(--paper); }
+.bg-cream { background-color: var(--cream); }
+.bg-mist { background-color: var(--mist); }
+.bg-saffron { background-color: var(--saffron); }
+.bg-saffron-glow { background-color: var(--saffron-glow); }
+
+.text-ink { color: var(--ink-text); }
+.text-slate { color: var(--slate); }
+.text-slate-soft { color: var(--slate-soft); }
+.text-on-dark { color: var(--on-dark); }
+.text-on-dark-soft { color: var(--on-dark-soft); }
+.text-saffron { color: var(--saffron); }
+.text-forest { color: var(--forest); }
+
+.border-mist { border-color: var(--mist); }
+.border-ink { border-color: var(--ink); }
+.border-saffron { border-color: var(--saffron); }
+.border-on-dark { border-color: rgba(255, 255, 255, 0.7); }
+
+/* ==================================================================
+   Components / patterns
+   ================================================================== */
+
+/* Grain overlay */
+.grain::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Work imagery: real, full-color photos with a gentle, cohesive grade. */
+.work-image {
+  filter: saturate(1.06) contrast(1.02);
+  transition: filter 400ms var(--ease-out), transform 400ms var(--ease-out);
+}
+.group:hover .work-image,
+.work-image:hover { filter: saturate(1.14) contrast(1.05); }
+
+/* Marquee */
+.marquee { display: flex; width: max-content; animation: marquee 40s linear infinite; }
+.marquee:hover { animation-play-state: paused; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 32px;
+  border-radius: var(--r-sm);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 200ms var(--ease-out), color 200ms var(--ease-out), border-color 200ms var(--ease-out), transform 200ms var(--ease-out);
+}
+.btn .arrow { transition: transform 200ms var(--ease-out); }
+.btn:hover .arrow { transform: translateX(6px); }
+.btn-primary { background: var(--saffron); color: var(--ink); }
+.btn-primary:hover { background: var(--saffron-deep); color: #fff; }
+.btn-outline-dark { border: 1.5px solid var(--ink); color: var(--ink); }
+.btn-outline-dark:hover { background: var(--ink); color: #fff; }
+.btn-outline-light { border: 1.5px solid rgba(255, 255, 255, 0.7); color: #fff; }
+.btn-outline-light:hover { background: #fff; color: var(--ink); }
+
+.link-arrow { display: inline-flex; align-items: center; gap: 6px; color: var(--saffron); font-weight: 600; }
+.link-arrow .arrow { transition: transform 200ms var(--ease-out); }
+.link-arrow:hover .arrow { transform: translateX(5px); }
+
+/* Pills */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Card shadow */
+.shadow-card { box-shadow: 0 1px 3px rgba(11, 20, 55, 0.08), 0 10px 30px rgba(11, 20, 55, 0.05); }
+.shadow-card-hover { box-shadow: 0 2px 6px rgba(11, 20, 55, 0.07), 0 22px 48px rgba(11, 20, 55, 0.1); }
+
+/* Utilities */
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Skip link */
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: -80px;
+  z-index: 200;
+  background: var(--saffron);
+  color: var(--ink);
+  padding: 12px 18px;
+  border-radius: var(--r-sm);
+  font-weight: 600;
+  transition: top 200ms var(--ease-out);
+}
+.skip-link:focus { top: 16px; }
+
+/* Custom cursor (desktop, fine-pointer only; mounted by JS) */
+.cursor-dot {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 999px;
+  background: var(--ink);
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: normal;
+  transition: width 180ms var(--ease-out), height 180ms var(--ease-out), background 180ms var(--ease-out), margin 180ms var(--ease-out);
+}
+.cursor-dot--active {
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  background: var(--saffron);
+}
+
+/* ==================================================================
+   Reduced motion: hard stop on all animation/transition
+   ================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee { animation: none !important; }
+  .cursor-dot { display: none !important; }
+}
